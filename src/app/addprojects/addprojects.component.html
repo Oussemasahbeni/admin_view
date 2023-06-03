@@ -1,0 +1,112 @@
+<div class="container">
+    <div class="addsection">
+        <div class="text-center">
+            <h1>Add Project</h1>
+        </div>
+
+        <div style="width:50%;margin:auto" class="form-group row">
+            <form [formGroup]="addForm" novalidate class="form-group row">
+                <!--<div class="row">
+                    <div class="col-md-6 div">Project ID <span style="color:red;">* </span></div>
+                    <div class="col-md-6"><input [class.is-invalid]="id.invalid && id.touched" type="text"
+                            class="form-control" name="project_id" formControlName="project_id" placeholder="Project ID"
+                            required="">
+                    </div>
+                </div>
+                <div *ngIf="(id.invalid && id.touched) || id.dirty">
+                    <small *ngIf="id.errors?.required" class="text-danger error-msg">Project ID is
+                        required</small>
+                </div>
+                <div class=" text-danger error-msg"
+                    *ngIf="addForm.get('project_id').hasError('min') || addForm.get('project_id').hasError('pattern')">
+                    <small>Contains only numbers and it
+                        must be greater than 0 .</small>
+                </div> -->
+                <div class="row">
+                    <div class="col-md-6 div">Title </div>
+                    <div class="col-md-6"><input class="form-control" type="text" name="title" formControlName="title"
+                            placeholder="Title" required="">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 div">Description </div>
+                    <div class="col-md-6"><input class="form-control" type="text" name="description"
+                            formControlName="description" placeholder="Description" required="">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 div">Start date <span style="color:red;">* </span> </div>
+                    <div class="col-md-6"><input type="date" class="form-control" name="start_date"
+                            formControlName="start_date" required=""></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 div">End date <span style="color:red;">* </span> </div>
+                    <div class="col-md-6"><input type="date" class="form-control" name="end_date"
+                            formControlName="end_date" required=""></div>
+                    <small>
+                        <div *ngIf="addForm.errors?.endDateInvalid"><small class="text-danger error-msg">End date must
+                                be after start date.</small>
+                        </div>
+
+                    </small>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6 div select">Code categorie <span style="color:red;">* </span></div>
+                    <div class="col-md-6">
+                        <select class="form-control " name="code_cat" formControlName="code_cat" required>
+                            <option value="" disabled selected>Choose category</option>
+                            <option *ngFor="let category of projectCategories" [value]="category.category_id">{{
+                                category.name }}</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6 div">Project Holder <span style="color:red;">* </span> </div>
+                    <div class="col-md-6"><input type="text" class="form-control" name="project_holder"
+                            formControlName="project_holder" required=""></div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6 div select">Select Country <span style="color:red;">* </span></div>
+                    <div class="col-md-6">
+                        <select class="form-control" name="country" id="country" formControlName="project_country">
+                            <option value="" disabled selected>Select Country</option>
+                            <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 div">Image <span style="color:red;">* </span> </div>
+                    <div class="col-md-6">
+                        <input id="imageInput" type="file" class="form-control" name="image_url1" accept="image/*"
+                            required="" (change)="selectFile($event)">
+                    </div>
+                </div>
+
+                <!-- <div *ngIf="currentFileUpload" class="progress mt-2">
+                    <div class="progress-bar progress-bar-info" role="progressbar" attr.aria-valuenow="{{ percentage }}"
+                        aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ width: percentage + '%' }">
+                        {{ percentage }}%
+                    </div>
+                </div> -->
+                <div class="col-md-6"><input class="form-control" type="text" name="description"
+                        formControlName="image_url" placeholder="Description" hidden>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn btn-dark" (click)="onSubmit()">ADD PROJECT</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

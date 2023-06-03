@@ -1,0 +1,62 @@
+<div class="login-box">
+    <h2>Sign Up</h2>
+    <form [formGroup]="addForm">
+
+        <div class="user-box">
+            <input [class.is-invalid]="email.invalid && email.touched" type="email" name="" required=""
+                formControlName="email">
+            <label>Email <span style="color:red;">* </span></label>
+        </div>
+        <div *ngIf="(email.invalid && email.touched) || email.dirty">
+            <small *ngIf="email.errors?.required" class="text-danger error-msg">Email is
+                required.</small>
+            <small *ngIf="email.errors?.pattern" class="text-danger error-msg">Please provide a valid
+                email
+                address.</small>
+        </div>
+
+        <!--<div *ngIf="(age.invalid && age.touched) || age.dirty">
+            <small *ngIf="age.errors?.required" class="text-danger error-msg">Age is
+                required.</small> 
+        </div>-->
+        <div class="user-box user">
+            <input [class.is-invalid]="username.invalid && username.touched" type="text" name="" required=""
+                formControlName="username">
+            <label>Username<span style="color:red;">* </span></label>
+        </div>
+        <div *ngIf="(username.invalid && username.touched) || username.dirty">
+            <small *ngIf="username.errors?.required" class="text-danger error-msg">Username is
+                required.</small>
+            <small *ngIf="username.errors?.pattern" class="text-danger error-msg">Username can only contain letters and
+                numbers.
+            </small>
+        </div>
+        <div class="user-box">
+            <input [type]="visibility ? 'text' : 'password'" [(ngModel)]="password1"
+                [class.is-invalid]="password.invalid && password.touched" type="password" name="" required=""
+                formControlName="password" [(ngModel)]="password1 ">
+
+            <i class="fa fa-eye" aria-hidden="true" (click)="toggleVisibility()" *ngIf="!visibility"></i>
+            <i class="fa fa-eye" aria-hidden="true" (click)="toggleVisibility()" *ngIf="visibility"></i>
+           
+            <!--  <fa-icon [icon]="faeye" (click)="toggleVisibility()" *ngIf="!visibility"></fa-icon>
+            <fa-icon [icon]="faeyes" (click)="toggleVisibility()" *ngIf="visibility"></fa-icon> -->
+
+            <label>Password<span style="color:red;">* </span></label>
+        </div>
+        <div *ngIf="(password.invalid && password.touched) || password.dirty">
+            <small *ngIf="password.errors?.required" class="text-danger error-msg">Password is
+                required.</small>
+            <small *ngIf="password.errors?.pattern " class="text-danger error-msg">Your password must be at least 8
+                characters long, contain at least one digit, one lowercase letter, one uppercase letter, and one special
+                character (e.g. !, @, #, $, %, &, etc.).</small>
+
+        </div>
+        <div>
+            <p>Already have an account? <a routerLink="/login">Click here to login.</a></p>
+        </div>
+        <button (click)="onSubmit()">
+            Submit
+        </button>
+    </form>
+</div>

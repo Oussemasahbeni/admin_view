@@ -1,0 +1,49 @@
+<div class="container container-bg">
+    <h1 class="text">View All Projects</h1>
+    <div class="container">
+
+        <input class="custom-input" [(ngModel)]="searchTerm" (input)="filterData()" placeholder="Search"
+            (keyup)="onKeyUp()">
+
+        <table matSort (matSortChange)="sortData($event)" class=" table table-stripped" id="example">
+            <thead class="list">
+                <th mat-sort-header="project_id">ID</th>
+                <th class="align-center">Description</th>
+                <th class="align-center">Title</th>
+                <th mat-sort-header="start_date">Start date</th>
+                <th mat-sort-header="end_date">End date</th>
+                <th class="align-center">code categorie</th>
+                <th class="align-center"> project country</th>
+                <th class="align-center"> project holder</th>
+                <th class="align-center"> image </th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let project of projects | paginate: { itemsPerPage: 10, currentPage: p } "
+                    class="table-dark">
+                    <td>{{project.project_id}}</td>
+                    <td>{{project.title}}</td>
+                    <td>{{project.description}}</td>
+                    <td>{{project.start_date}}</td>
+                    <td>{{project.end_date}}</td>
+                    <td>{{project.code_cat}}</td>
+                    <td>{{project.project_country}}</td>
+                    <td>{{project.project_holder}}</td>
+                    <td> <img src="{{project.image_url}}" class="image_url"></td>
+
+                    <td> <button class="btn btn-success buttonspace" (click)="onEdit(project.project_id)"> Edit</button>
+
+
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <div class="lol">
+            <pagination-controls (pageChange)="p = $event" class="custom-pagination"></pagination-controls>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="addsection">
+        <div class="text-center">
+            <h1>Edit Project</h1>
+        </div>
+
+        <div style="width:50%;margin:auto" class="form-group row">
+            <form [formGroup]="addForm" novalidate class="form-group row">
+                <div class="row">
+                    <div class="col-md-6 div">Project ID</div>
+                    <div class="col-md-6"><input type="text" class="form-control" name="project_id" formControlName="project_id"
+                            readonly></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 div">Title</div>
+                    <div class="col-md-6"><input class="form-control" type="text" name="Title" formControlName="title">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 div">Description</div>
+                    <div class="col-md-6"><input class="form-control" type="text" name="description"
+                            formControlName="description"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 div">Start date</div>
+                    <div class="col-md-6"><input type="date" class="form-control" name="start_date"
+                            formControlName="start_date"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 div">End date</div>
+                    <div class="col-md-6"><input type="date" class="form-control" name="end_date"
+                            formControlName="end_date"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 div">code categorie</div>
+                    <div class="col-md-6"><input type="text" class="form-control" name="code_cat"
+                            formControlName="code_cat">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn btn-dark" (click)="onEdit()">EDIT PROJECT</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

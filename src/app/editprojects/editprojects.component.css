@@ -1,0 +1,42 @@
+.addsection {
+    margin-top: 37px;
+    background-color:#272932;
+    box-shadow: 0px 2px 12px 0px #e3e3e3;
+    padding: 37px;
+}
+.addsection h1{
+    margin-bottom: 37px;
+}
+.text-center{
+    color: #ffffff;
+}
+form {
+    padding: 20px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+label, input {
+    margin: 12px 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+}
+input:hover,
+input:active {
+    background-color: grey;
+}
+input {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.div{
+    padding-top: 20px;
+}
+input[readonly] {
+    background-color: darkgray;
+    border: none;
+    border-bottom: 2px solid darkgrey;
+    color: #555;
+  }
